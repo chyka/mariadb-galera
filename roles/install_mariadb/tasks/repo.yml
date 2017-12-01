@@ -1,0 +1,27 @@
+---
+
+- name: install prerequisite
+  apt:
+    name: software-properties-common
+    state: present
+
+- name: import mariadb gpg key
+  command: sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
+
+- name: install mariadb cobbler repository
+  apt_repository: >
+    repo="deb [arch=amd64,i386,ppc64el] http://mariadb.mirror.anstey.ca/repo/10.1/ubuntu xenial main"
+    state=present
+
+# this ensures the mariadb package is used from the mariadb mirror that is
+# mirrored yeesh -- curtis
+#- name: install maridab.pref file for bug 1446772
+#  copy:
+#    src=mariadb.pref
+#    dest=/etc/apt/preferences.d/mariadb.pref
+#    owner=root
+#    group=root
+#    mode=0644
+
+- name: apt-get update
+  command: apt-get update

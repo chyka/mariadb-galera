@@ -1,0 +1,6 @@
+---
+
+- name: install mysqlconf from template
+  template:
+    src=galera.cnf
+    dest=/etc/mysql/conf.d/galera.cnf

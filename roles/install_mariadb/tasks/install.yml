@@ -1,0 +1,11 @@
+---
+
+- name: install maria
+  package:
+    name: mariadb-server
+    state: latest
+
+- name: install rsync
+  package:
+    name: rsync
+    state: latest

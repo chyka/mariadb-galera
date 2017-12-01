@@ -1,0 +1,5 @@
+---
+
+- hosts: galera_cluster
+  roles: 
+    - install_mariadb

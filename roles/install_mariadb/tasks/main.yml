@@ -1,0 +1,6 @@
+---
+- include: repo.yml
+- include: install.yml
+- include: galera_config.yml
+- include: ufw_config.yml
+- include: stop_mysql.yml
